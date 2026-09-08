@@ -14,6 +14,7 @@ body { margin: 0; }
 .subtitle { color: #737d71; font-size: 16px; margin-bottom: 43px !important; }
 .converter-card { max-width: 800px; box-shadow: 0 20px 65px rgba(47, 71, 43, .09) !important; border: 1px solid #e8ece4; }
 .category-chip { background: #eff8df !important; color: #637b50 !important; font-weight: 700 !important; }
+.reset-button { border-color: #dce6d6 !important; color: #687a63 !important; text-transform: none !important; font-weight: 700 !important; }
 .unit-row { display: grid; grid-template-columns: 1.05fr 1.2fr 44px 1.2fr; gap: 12px; align-items: center; }
 .swap-button { min-width: 42px !important; height: 42px; color: #657b5d !important; border: 1px solid #dde5d9 !important; border-radius: 10px !important; }
 .convert-button { margin-top: 24px !important; background: #18221a !important; color: #d6f98b !important; font-weight: 800 !important; padding: 13px !important; text-transform: none !important; font-size: 15px !important; }
