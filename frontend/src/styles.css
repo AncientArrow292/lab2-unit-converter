@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root { font-family: Manrope, sans-serif; color: #172018; background: #f7f8f3; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.page { min-height: 100vh; background: radial-gradient(circle at 90% 0%, #e5f4d6 0, transparent 32%), #f7f8f3; padding: 28px 0 34px; }
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 85px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.logo { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 11px; background: #18221a; color: #c9f36b; }
+.status { color: #55704c !important; background: #edf5e6 !important; font-size: 11px !important; font-weight: 700 !important; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: #7fbd63; }
+.eyebrow { font-family: 'DM Mono', monospace !important; font-size: 11px !important; letter-spacing: .13em !important; color: #79916c; font-weight: 500 !important; }
+.hero-title { margin: 13px 0 16px !important; font-size: clamp(42px, 7vw, 70px) !important; line-height: 1.03 !important; letter-spacing: -.06em !important; font-weight: 800 !important; }
+.hero-title span { color: #7a966d; }
+.subtitle { color: #737d71; font-size: 16px; margin-bottom: 43px !important; }
+.converter-card { max-width: 800px; box-shadow: 0 20px 65px rgba(47, 71, 43, .09) !important; border: 1px solid #e8ece4; }
+.category-chip { background: #eff8df !important; color: #637b50 !important; font-weight: 700 !important; }
+.unit-row { display: grid; grid-template-columns: 1.05fr 1.2fr 44px 1.2fr; gap: 12px; align-items: center; }
+.swap-button { min-width: 42px !important; height: 42px; color: #657b5d !important; border: 1px solid #dde5d9 !important; border-radius: 10px !important; }
+.convert-button { margin-top: 24px !important; background: #18221a !important; color: #d6f98b !important; font-weight: 800 !important; padding: 13px !important; text-transform: none !important; font-size: 15px !important; }
+.convert-button span { margin-left: 8px; font-size: 20px; }
+.result { margin-top: 28px; padding: 20px 22px; border-radius: 12px; background: #f1f8e8; border: 1px solid #dfeccc; }
+.result-number { font-family: 'DM Mono', monospace !important; font-size: 32px !important; font-weight: 500 !important; margin: 4px 0 !important; }
+.result-number small { font-size: 17px; color: #718767; }
+.history-head { max-width: 800px; margin: 43px 0 13px; display: flex; justify-content: space-between; align-items: center; }
+.history-head h6 { display: flex; gap: 8px; align-items: center; }
+.history-item { max-width: 800px; display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; background: rgba(255,255,255,.68); border: 1px solid #e8ece4; border-radius: 11px; }
+footer { margin-top: 72px; color: #a1aaa0; font-size: 12px; } footer span { margin: 0 8px; color: #c9f36b; }
+@media (max-width: 650px) { .page { padding: 20px 0; } .header { margin-bottom: 55px; } .converter-card .MuiCardContent-root { padding: 20px 16px; } .unit-row { grid-template-columns: 1fr 1fr; } .swap-button { grid-column: 1 / -1; justify-self: center; transform: rotate(90deg); } .history-head { display: block; } .history-head p { margin-top: 8px; } footer { margin-top: 48px; } }
