@@ -10,8 +10,12 @@ app.use(express.json());
 app.get('/api/health', (_request, response) => response.json({ status: 'ok' }));
 app.get('/api/units', (_request, response) => response.json(getUnitCatalog()));
 app.post('/api/convert', (request, response) => {
-  const { category, from, to, value } = request.body;
-  const numericValue = typeof value === 'number' ? value : Number(value);
+  const { category, from, to, value } = request.body || {};
+  const numericValue = typeof value === 'number'
+    ? value
+    : typeof value === 'string' && value.trim() !== ''
+      ? Number(value)
+      : NaN;
   try {
     const result = convert({ category, from, to, value: numericValue });
     response.json({ result, from, to, category });
