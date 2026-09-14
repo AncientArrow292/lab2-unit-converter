@@ -30,6 +30,13 @@ export default function App() {
 
   async function handleConvert(event) {
     event.preventDefault(); setError('');
+    const trimmedValue = value.trim();
+    const numericValue = Number(trimmedValue);
+    if (!trimmedValue || !Number.isFinite(numericValue)) {
+      setError('Please enter a valid number to convert.');
+      setResult(null);
+      return;
+    }
     try {
       const response = await fetch('/api/convert', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ category, from, to, value }) });
       const data = await response.json(); if (!response.ok) throw new Error(data.error);
