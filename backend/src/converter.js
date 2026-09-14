@@ -34,6 +34,16 @@ const units = {
       fahrenheit: { label: 'Fahrenheit', short: '°F', toBase: (value) => (value - 32) * 5 / 9, fromBase: (value) => value * 9 / 5 + 32 },
       kelvin: { label: 'Kelvin', short: 'K', toBase: (value) => value - 273.15, fromBase: (value) => value + 273.15 }
     }
+  },
+  speed: {
+    label: 'Speed',
+    units: {
+      metersPerSecond: { label: 'Meters per second', short: 'm/s', toBase: (value) => value, fromBase: (value) => value },
+      kilometersPerHour: { label: 'Kilometers per hour', short: 'km/h', toBase: (value) => value / 3.6, fromBase: (value) => value * 3.6 },
+      milesPerHour: { label: 'Miles per hour', short: 'mph', toBase: (value) => value * 0.44704, fromBase: (value) => value / 0.44704 },
+      knots: { label: 'Knots', short: 'kn', toBase: (value) => value * 0.5144444444, fromBase: (value) => value / 0.5144444444 },
+      feetPerSecond: { label: 'Feet per second', short: 'ft/s', toBase: (value) => value * 0.3048, fromBase: (value) => value / 0.3048 }
+    }
   }
 };
 

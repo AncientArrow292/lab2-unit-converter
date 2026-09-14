@@ -9,7 +9,8 @@ const fallbackCatalog = [
   { key: 'length', label: 'Length', units: [{ key: 'feet', label: 'Feet', short: 'ft' }, { key: 'meters', label: 'Meters', short: 'm' }, { key: 'inches', label: 'Inches', short: 'in' }, { key: 'miles', label: 'Miles', short: 'mi' }] },
   { key: 'volume', label: 'Volume', units: [{ key: 'liters', label: 'Liters', short: 'L' }, { key: 'gallons', label: 'US gallons', short: 'gal' }, { key: 'milliliters', label: 'Milliliters', short: 'mL' }] },
   { key: 'weight', label: 'Weight', units: [{ key: 'kilograms', label: 'Kilograms', short: 'kg' }, { key: 'pounds', label: 'Pounds', short: 'lb' }] },
-  { key: 'temperature', label: 'Temperature', units: [{ key: 'celsius', label: 'Celsius', short: '°C' }, { key: 'fahrenheit', label: 'Fahrenheit', short: '°F' }] }
+  { key: 'temperature', label: 'Temperature', units: [{ key: 'celsius', label: 'Celsius', short: '°C' }, { key: 'fahrenheit', label: 'Fahrenheit', short: '°F' }] },
+  { key: 'speed', label: 'Speed', units: [{ key: 'metersPerSecond', label: 'Meters per second', short: 'm/s' }, { key: 'kilometersPerHour', label: 'Kilometers per hour', short: 'km/h' }, { key: 'milesPerHour', label: 'Miles per hour', short: 'mph' }, { key: 'knots', label: 'Knots', short: 'kn' }] }
 ];
 
 const theme = createTheme({ palette: { primary: { main: '#c9f36b' }, background: { default: '#f7f8f3' }, text: { primary: '#172018', secondary: '#6d756b' } }, typography: { fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }, shape: { borderRadius: 14 } });
