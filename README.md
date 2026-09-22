@@ -4,6 +4,12 @@ A unit conversion web application with an Express/Node.js API and a React + Mate
 
 Convertly allows users to perform different types of unit conversions through a simple web interface.
 
+## Production deployment
+
+The application is deployed on an Azure Linux VM and is available at:
+
+https://convertly-josh.duckdns.org
+
 ## Installation
 
 Install dependencies from the project root:
