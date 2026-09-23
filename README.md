@@ -1,14 +1,16 @@
 # Convertly
 
-A unit conversion web application with an Express/Node.js API and a React + Material UI frontend.
-
-Convertly allows users to perform different types of unit conversions through a simple web interface.
+A unit conversion web application with an Express/Node.js API and a React + Material UI frontend. Convertly allows users to perform different types of unit conversions through a simple web interface.
 
 ## Production deployment
 
 The application is deployed on an Azure Linux VM and is available at:
 
-https://convertly-josh.duckdns.org
+https://shifthappens.cc
+
+The production API health endpoint is:
+
+https://shifthappens.cc/api/health
 
 ## Installation
 
@@ -61,17 +63,11 @@ The application currently includes:
 
 ## Joshua's contribution
 
-Joshua improved the input validation of the converter.
-
-The application now prevents invalid or empty values from being submitted and displays a clear error message when the input is not valid.
-
-Valid decimal values and existing conversions continue to work normally.
+Joshua improved the input validation of the converter. The application now prevents invalid or empty values from being submitted and displays a clear error message when the input is not valid. Valid decimal values and existing conversions continue to work normally.
 
 ## Alexy's contribution
 
-Alexy added a new speed conversion category.
-
-The new category includes common speed units such as:
+Alexy added a new speed conversion category. The new category includes common speed units such as:
 
 - kilometers per hour (km/h)
 - miles per hour (mph)
@@ -79,10 +75,12 @@ The new category includes common speed units such as:
 
 ## Supported conversions
 
-Length, volume, weight, temperature, and speed conversions are available.
+Length, volume, weight, temperature, and speed conversions are available. The backend exposes:
 
-The backend exposes:
+- GET /api/units
+- POST /api/convert
+- GET /api/health
 
-- `GET /api/units`
-- `POST /api/convert`
-- `GET /api/health`
+## Deployment
+
+Production deployment is handled by GitHub Actions on a self-hosted Azure runner. The workflow verifies the frontend build, updates the production files, restarts PM2, and checks `https://shifthappens.cc/api/health`.
