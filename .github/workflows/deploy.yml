@@ -65,5 +65,74 @@ jobs:
           sleep 2
           curl --fail --silent --show-error http://127.0.0.1:4000/api/health
           echo
+          curl --fail --silent --show-error https://shifthappens.cc/api/health
+          echo
+name: Deploy to Azure
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  verify-and-deploy:
+    name: Verify and deploy
+    runs-on: [self-hosted, Linux, X64]
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            backend/package-lock.json
+            frontend/package-lock.json
+
+      - name: Install backend dependencies
+        run: npm ci --prefix backend
+
+      - name: Install frontend dependencies
+        run: npm ci --prefix frontend
+
+      - name: Verify frontend production build
+        run: npm run build --prefix frontend
+
+      - name: Deploy main to production
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          cd /var/www/unit-converter
+
+          git fetch origin main
+          git reset --hard origin/main
+
+          npm ci --prefix backend --omit=dev
+          npm ci --prefix frontend
+          npm run build --prefix frontend
+
+          /usr/bin/pm2 restart unit-converter-api
+          /usr/bin/pm2 save
+
+      - name: Verify backend health
+        shell: bash
+        run: |
+          set -euo pipefail
+          sleep 2
+          curl --fail --silent --show-error http://127.0.0.1:4000/api/health
+          echo
           curl --fail --silent --show-error https://convertly-josh.duckdns.org/api/health
           echo
